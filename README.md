@@ -2,7 +2,7 @@
 
 
 
-This repository contains Terraform code to provision a development environment on AWS.  
+This repository contains Terraform code to provision a development environment on AWS.
 
 It includes VPC, EC2, and Security Group configuration with dynamic IP handling for SSH access.
 
@@ -14,9 +14,9 @@ It includes VPC, EC2, and Security Group configuration with dynamic IP handling 
 
 
 
-**Terraform** v1.3+ installed  
+**Terraform** v1.3+ installed
 
-**AWS CLI** installed (optional but recommended)  
+**AWS CLI** installed (optional but recommended)
 
 **IAM user credentials** (Access Key + Secret Key) with required permissions:
 
@@ -34,15 +34,13 @@ IAMReadOnlyAccess (optional, for inspection)
 
 
 
-Terraform requires AWS credentials to authenticate.  
+Terraform requires AWS credentials to authenticate.
 
 You can provide them via the **credentials file** or **environment variables**.
 
 
 
-### Option 1: AWS Credentials File (Recommended)
-
-
+### AWS Credentials File
 
 **Linux/MacOS**
 
@@ -57,4 +55,84 @@ nano \~/.aws/credentials
 
 mkdir $env:USERPROFILE\\.aws
 notepad $env:USERPROFILE\\.aws\\credentials
+
+
+
+### Environment variable
+
+
+
+**You can also export credentials directly**:
+
+
+
+Linux/MacOS
+
+export AWS\_ACCESS\_KEY\_ID=YOUR\_ACCESS\_KEY
+
+export AWS\_SECRET\_ACCESS\_KEY=YOUR\_SECRET\_KEY
+
+export AWS\_DEFAULT\_REGION=ap-south-1
+
+
+
+
+
+Windows (PowerShell)
+
+setx AWS\_ACCESS\_KEY\_ID "YOUR\_ACCESS\_KEY"
+
+setx AWS\_SECRET\_ACCESS\_KEY "YOUR\_SECRET\_KEY"
+
+setx AWS\_DEFAULT\_REGION "ap-south-1"
+
+
+
+
+
+
+
+### SSH Keypair Setup
+
+
+
+
+
+**Terraform uses an AWS key pair to enable SSH access to the EC2 instance.**
+
+
+
+**Generate a key pair locally** (if you don’t already have one):
+
+
+
+&#x20;  Linux/MacOS
+
+&#x20;  *bash*
+
+&#x20;  ssh-keygen -t rsa -b 4096 -f \~/.ssh/devKey
+
+
+
+
+
+Windows Powershell
+
+
+
+ssh-keygen -t rsa -b 4096 -f $env:USERPROFILE\\.ssh\\devKey
+
+
+
+
+
+**Modify the public key value in ec2.tf to match the path of the generated key.**
+
+
+
+
+
+
+
+
 
