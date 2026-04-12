@@ -1,3 +1,8 @@
+# Fetch current public IP dynamically
+data "http" "my_ip" {
+  url = "https://checkip.amazonaws.com/"
+}
+
 resource "aws_security_group" "mySecurityGroup" {
   name        = "dev_sg"
   description = "security_group_for_dev"
@@ -7,7 +12,8 @@ resource "aws_security_group" "mySecurityGroup" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["103.184.239.14/32"]
+    cidr_blocks = ["${chomp(data.http.my_ip.response_body)}/32"]
+
   }
 
   egress {
