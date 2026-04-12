@@ -1,4 +1,4 @@
-\# AWS Dev Environment with Terraform
+# AWS Dev Environment with Terraform
 
 
 
@@ -8,61 +8,53 @@ It includes VPC, EC2, and Security Group configuration with dynamic IP handling 
 
 
 
-\---
+
+
+## Prerequisites
 
 
 
-\## Prerequisites
+**Terraform** v1.3+ installed  
+
+**AWS CLI** installed (optional but recommended)  
+
+**IAM user credentials** (Access Key + Secret Key) with required permissions:
+
+AmazonEC2FullAccess
+AmazonVPCFullAccess
+IAMReadOnlyAccess (optional, for inspection)
 
 
 
-\- \*\*Terraform\*\* v1.3+ installed  
-
-\- \*\*AWS CLI\*\* installed (optional but recommended)  
-
-\- \*\*IAM user credentials\*\* (Access Key + Secret Key) with required permissions:
-
-&#x20; - `AmazonEC2FullAccess`
-
-&#x20; - `AmazonVPCFullAccess`
-
-&#x20; - `IAMReadOnlyAccess` (optional, for inspection)
 
 
 
-\---
 
-
-
-\## AWS Credentials Setup
+## AWS Credentials Setup
 
 
 
 Terraform requires AWS credentials to authenticate.  
 
-You can provide them via the \*\*credentials file\*\* or \*\*environment variables\*\*.
+You can provide them via the **credentials file** or **environment variables**.
 
 
 
-\### Option 1: AWS Credentials File (Recommended)
+### Option 1: AWS Credentials File (Recommended)
 
 
 
-\*\*Linux/MacOS\*\*
+**Linux/MacOS**
 
-```bash
+*bash*
 
 mkdir -p \~/.aws
-
 nano \~/.aws/credentials
 
 
 
-\*\*Windows Powershell\*\*
-
-
+**Windows Powershell**
 
 mkdir $env:USERPROFILE\\.aws
-
 notepad $env:USERPROFILE\\.aws\\credentials
 
