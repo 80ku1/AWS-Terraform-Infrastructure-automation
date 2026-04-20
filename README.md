@@ -46,7 +46,7 @@ You can provide them via the **credentials file** or **environment variables**.
 
 
 
-###### **Linux/MacOS**
+**Linux/MacOS**
 
 
 
@@ -55,11 +55,12 @@ nano \~/.aws/credentials
 
 
 
-###### **Windows Powershell**
+**Windows Powershell**
 
 
 
 mkdir $env:USERPROFILE\\.aws
+
 
 
 notepad $env:USERPROFILE\\.aws\\credentials
@@ -118,7 +119,7 @@ setx AWS\_DEFAULT\_REGION "(required\_region)"
 
 
 
-###### Linux/MacOS
+Linux/MacOS
 
 
 
@@ -128,7 +129,7 @@ setx AWS\_DEFAULT\_REGION "(required\_region)"
 
 
 
-###### Windows Powershell
+Windows Powershell
 
 
 
