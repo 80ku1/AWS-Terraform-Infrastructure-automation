@@ -40,23 +40,33 @@ You can provide them via the **credentials file** or **environment variables**.
 
 
 
+### 
+
 ### AWS Credentials File
 
-**Linux/MacOS**
 
-*bash*
+
+###### **Linux/MacOS**
+
+
 
 mkdir -p \~/.aws
 nano \~/.aws/credentials
 
 
 
-**Windows Powershell**
+###### **Windows Powershell**
+
+
 
 mkdir $env:USERPROFILE\\.aws
+
+
 notepad $env:USERPROFILE\\.aws\\credentials
 
 
+
+### 
 
 ### Environment variable
 
@@ -72,7 +82,7 @@ export AWS\_ACCESS\_KEY\_ID=YOUR\_ACCESS\_KEY
 
 export AWS\_SECRET\_ACCESS\_KEY=YOUR\_SECRET\_KEY
 
-export AWS\_DEFAULT\_REGION=ap-south-1
+export AWS\_DEFAULT\_REGION=(required\_region)
 
 
 
@@ -84,7 +94,7 @@ setx AWS\_ACCESS\_KEY\_ID "YOUR\_ACCESS\_KEY"
 
 setx AWS\_SECRET\_ACCESS\_KEY "YOUR\_SECRET\_KEY"
 
-setx AWS\_DEFAULT\_REGION "ap-south-1"
+setx AWS\_DEFAULT\_REGION "(required\_region)"
 
 
 
@@ -92,7 +102,7 @@ setx AWS\_DEFAULT\_REGION "ap-south-1"
 
 
 
-### SSH Keypair Setup
+#### SSH Keypair Setup
 
 
 
@@ -106,9 +116,11 @@ setx AWS\_DEFAULT\_REGION "ap-south-1"
 
 
 
-&#x20;  Linux/MacOS
 
-&#x20;  *bash*
+
+###### Linux/MacOS
+
+
 
 &#x20;  ssh-keygen -t rsa -b 4096 -f \~/.ssh/devKey
 
@@ -116,23 +128,15 @@ setx AWS\_DEFAULT\_REGION "ap-south-1"
 
 
 
-Windows Powershell
+###### Windows Powershell
 
 
 
-ssh-keygen -t rsa -b 4096 -f $env:USERPROFILE\\.ssh\\devKey
+&#x20;  ssh-keygen -t rsa -b 4096 -f $env:USERPROFILE\\.ssh\\devKey
 
 
 
 
 
 **Modify the public key value in ec2.tf to match the path of the generated key.**
-
-
-
-
-
-
-
-
 
